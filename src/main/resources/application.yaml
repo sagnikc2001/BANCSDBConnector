@@ -45,12 +45,20 @@ connector:
             dao:
                 v1:
                     BANCSDBImplclasspath: com.alahli.middleware.customer.dao.BANCSDBConnectorImplDao
+                    BANCSDBAccImplclasspath: com.alahli.middleware.account.dao.BANCSDBConnectorImplDao
                         
             impl:
                 BancsAMLPurposeCodeStoreProcedure:
                     httpmethod: POST
                     v1: ${connector.database.beans.dao.v1.BANCSDBImplclasspath}
-   
+                    
+                InquiryAccountStatusProcedure:
+                    httpmethod: POST
+                    v1: ${connector.database.beans.dao.v1.BANCSDBAccImplclasspath}
+                    
+                UpdateAccountStatusProcedure:
+                    httpmethod: POST
+                    v1: ${connector.database.beans.dao.v1.BANCSDBAccImplclasspath}     
               
         errors:
             databaseError:
